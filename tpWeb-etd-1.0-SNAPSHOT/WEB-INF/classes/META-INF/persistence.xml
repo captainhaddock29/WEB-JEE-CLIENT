@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd">
+    <!-- RESOURCE_LOCAL is for testing purpose, for production use JTA with a jta-data-source -->
+    <persistence-unit name="agendapp" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>fr.insarennes.model.Agenda</class>
+        <class>fr.insarennes.model.CM</class>
+        <class>fr.insarennes.model.Cours</class>
+        <class>fr.insarennes.model.Enseignant</class>
+        <class>fr.insarennes.model.Groupe</class>
+        <class>fr.insarennes.model.Matiere</class>
+        <class>fr.insarennes.model.Salle</class>
+        <class>fr.insarennes.model.TD</class>
+        <class>fr.insarennes.model.TP</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite::memory:" />
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <property name="eclipselink.ddl-generation.output-mode" value="both" />
+            <property name="hibernate.max_fetch_depth" value="3"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <!--<property name = "hibernate.show_sql" value = "true" />-->
+        </properties>
+    </persistence-unit>
+</persistence>

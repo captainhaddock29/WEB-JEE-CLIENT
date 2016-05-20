@@ -1,0 +1,24 @@
+
+let server = "http://localhost:8080/tpREST/tpREST/";//TODO to change.
+
+document.getElementById('searchbutton').onclick = function() {
+	let salle = document.getElementById('nomsalle').value;
+	let req = new XMLHttpRequest();
+
+	req.onreadystatechange = function() {
+		if (req.readyState != 4) return; // While not finished
+
+		if(req.status==200) {
+//TODO
+		} else {
+			document.getElementById('info').innerHTML = "Cannot be retrieved";
+		}
+	};
+
+	req.open("GET", server+"calendar/salle/"+salle, true);// TODO to update
+	req.send();
+};
+
+
+
+
